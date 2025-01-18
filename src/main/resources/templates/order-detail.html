@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Detail</title>
+</head>
+<body>
+<h1>Order Detail</h1>
+<p><strong>Order ID:</strong> <span th:text="${order.id}"></span></p>
+<p><strong>User ID:</strong> <span th:text="${order.userId}"></span></p>
+<p><strong>Total Price:</strong> <span th:text="${order.totalPrice}"></span></p>
+<p><strong>Status:</strong> <span th:text="${order.status}"></span></p>
+<p><strong>Created At:</strong> <span th:text="${order.createdAt}"></span></p>
+
+<h2>Order Items</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Product ID</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="orderItem : ${order.orderItems}">
+    <td th:text="${orderItem.productId}"></td>
+    <td th:text="${orderItem.quantity}"></td>
+    <td th:text="${orderItem.price}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/orders">Back to Order List</a>
+</body>
+</html>
